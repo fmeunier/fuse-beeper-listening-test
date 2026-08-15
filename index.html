@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ZX Spectrum beeper listening comparison</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>ZX Spectrum beeper listening comparison</h1>
+    <p class="privacy">No account is required. Nothing is uploaded automatically. Your answers remain on this device until you download and choose to send the result file.</p>
+  </header>
+
+  <section id="introduction" aria-labelledby="intro-heading">
+    <h2 id="intro-heading">Introduction</h2>
+    <p>This experiment compares ZX Spectrum beeper emulation with recordings of real ZX Spectrum hardware.</p>
+    <p>For each trial you will hear a <strong>Reference</strong> recording from a real ZX Spectrum, plus emulator renderings <strong>A</strong> and <strong>B</strong>. Listen to the reference, then A and B, and select whichever emulator sample sounds closer to the reference. If neither sounds meaningfully closer, choose <strong>No meaningful preference</strong>.</p>
+    <p>There are 18 trials. The test should take approximately 10–15 minutes.</p>
+
+    <h3>Listening instructions</h3>
+    <ul>
+      <li>Use headphones or reasonable speakers in a reasonably quiet environment.</li>
+      <li>Choose a comfortable listening level before beginning and avoid changing it during the test.</li>
+      <li>Replay Reference, A, and B as often as needed.</li>
+      <li>Judge similarity to the reference, not which sample sounds subjectively “nicer”.</li>
+      <li>Use “No meaningful preference” rather than guessing when a difference is not meaningful.</li>
+    </ul>
+
+    <fieldset>
+      <legend>Optional listening context</legend>
+      <label for="equipment">Listening equipment</label>
+      <select id="equipment">
+        <option value="">Not supplied</option><option value="headphones">Headphones</option>
+        <option value="speakers">Speakers</option><option value="other">Other</option>
+        <option value="prefer_not_to_say">Prefer not to say</option>
+      </select>
+      <label for="familiarity">Familiarity with real ZX Spectrum sound</label>
+      <select id="familiarity">
+        <option value="">Not supplied</option><option value="none">None</option>
+        <option value="some">Some</option><option value="extensive">Extensive</option>
+        <option value="prefer_not_to_say">Prefer not to say</option>
+      </select>
+      <label for="equipment-description">Equipment description (optional)</label>
+      <input id="equipment-description" type="text" maxlength="200" autocomplete="off">
+    </fieldset>
+    <button id="begin" type="button" class="primary">Begin or resume</button>
+  </section>
+
+  <section id="trial" class="hidden" aria-labelledby="progress">
+    <h2 id="progress">Trial 1 of 18</h2>
+    <p>Which emulator sample sounds closer to the real-machine reference?</p>
+    <div class="players">
+      <div class="player"><h3>Reference</h3><audio id="reference-audio" controls preload="metadata"></audio></div>
+      <div class="player"><h3>A</h3><audio id="A-audio" controls preload="metadata"></audio></div>
+      <div class="player"><h3>B</h3><audio id="B-audio" controls preload="metadata"></audio></div>
+    </div>
+    <fieldset class="choices">
+      <legend>Your response</legend>
+      <label><input type="radio" name="choice" value="A"> A sounds closer</label>
+      <label><input type="radio" name="choice" value="B"> B sounds closer</label>
+      <label><input type="radio" name="choice" value="no_preference"> No meaningful preference</label>
+    </fieldset>
+    <label for="strength">Preference strength (optional; only for A or B)</label>
+    <select id="strength">
+      <option value="">Not supplied</option><option value="slight">Slight</option>
+      <option value="clear">Clear</option><option value="strong">Strong</option>
+    </select>
+    <p id="response-error" class="error" role="alert"></p>
+    <button id="next" type="button" class="primary">Save response and continue</button>
+  </section>
+
+  <section id="complete" class="hidden" aria-labelledby="complete-heading">
+    <h2 id="complete-heading">All 18 trials are complete</h2>
+    <label for="final-comment">Any comments about the listening test? (optional)</label>
+    <textarea id="final-comment" rows="4" maxlength="2000"></textarea>
+    <p>Download the JSON result file, then return that file to the researcher using the method given with this test. It is not uploaded automatically.</p>
+    <button id="download" type="button" class="primary">Download Results</button>
+  </section>
+
+  <footer>
+    <button id="start-over" type="button" class="secondary">Start over</button>
+    <p><small>Experiment beep-listening-v1</small></p>
+  </footer>
+</main>
+<script src="js/experiment-config.js"></script>
+<script src="js/experiment-core.js"></script>
+<script src="js/runner.js"></script>
+</body>
+</html>
